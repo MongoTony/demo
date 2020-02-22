@@ -1,0 +1,1001 @@
+{
+  "NciCmdList": {
+    "CORE_RESET_CMD": {
+      "header": [
+        {
+          "type":"GID",
+          "value": 0
+        },
+        {
+          "type":"OID",
+          "value": 0
+        }
+      ],
+      "params": [
+        {
+          "type":"Reset Type",
+          "length": 1,
+          "value": 0,
+          "checked": true,
+          "tips": "0x00 : Keep Configuration. \n\tReset the NFCC and keep the NCI RF Configuration ( if supported).\n\n0x01 : Reset Configuation.\n\tReset the NFCC including the NCI RF Configuration. "
+        }
+      ]
+    },
+    "CORE_INIT_CMD": {
+      "header": [
+        {
+          "type": "GID",
+          "value": 0
+        },
+        {
+          "type": "OID",
+          "value": 1
+        }
+      ],
+      "params": [
+        {
+          "type":"Feature Enable",
+          "length": 2,
+          "value":  0,
+          "checked": true,
+          "tips": "--"
+        }
+      ]
+    },
+    "CORE_SET_CONFIG_CMD": {
+      "header": [
+        {
+          "type": "GID",
+          "value": 0
+        },
+        {
+          "type": "OID",
+          "value": 2
+        }
+      ],
+      "params": [
+        {
+          "type":"Param Number",
+          "length": 5,
+          "value": 2,
+          "checked": true,
+          "tips": " The Number of Parameter ID fields to follow (n) "
+        },
+        {
+          "type":"Parameters",
+          "length": 5,
+          "value":
+          [
+            {
+              "type":"ID",
+              "length": 1,
+              "value": 2,
+              "checked": true,
+              "tips": " tab(136) "
+            },
+            {
+              "type":"Len",
+              "length": 1,
+              "value": "",
+              "checked": true,
+              "tips": " the length(bytes) of Val "
+            },
+             {
+              "type":"Val",
+              "length": "1",
+              "value": "",
+              "checked": true,
+              "tips": "configuration parameter tab(136) "
+            }
+          ],
+          "checked": true,
+          "tips": " -- "
+        }
+      ]
+    },
+    "CORE_GET_CONFIG_CMD": {
+      "header": [
+        {
+          "type": "GID",
+          "value": 0
+        },
+        {
+          "type": "OID",
+          "value": 3
+        }
+      ],
+      "params": [
+        {
+          "type":"Param Number",
+          "length": 1,
+          "value": 3,
+          "checked": true,
+          "tips": " The Number of Parameter ID fields to follow (n) "
+        },
+        {
+          "type":"Paramers IDs",
+          "length": 3,
+          "value": [
+            {
+              "type":"ID",
+              "length": 1,
+              "value": "",
+              "checked": true,
+              "tips": " The id of Parameter"
+            }
+          ],
+          "checked": true,
+          "tips": " The Number of Parameter ID fields to follow (n) "
+        }
+      ]
+    },
+    "CORE_CONN_CREATE_CMD": {
+      "header":
+      [
+        {
+          "type": "GID",
+          "value": 0
+        },
+        {
+          "type": "OID",
+          "value": 4
+        }
+      ],
+      "params": [
+        {
+          "type":"Dest Type",
+          "length": 1,
+          "value": 2,
+          "checked": true,
+          "tips": "--"
+        },
+        {
+          "type":"Dest Number",
+          "length": 1,
+          "value": 0,
+          "checked": true,
+          "tips": "--"
+        },
+        {
+          "type": "Dest Params",
+          "length": 1,
+          "value":[
+            {
+              "type": "ID",
+              "length": 1,
+              "value": 0,
+              "checked": true,
+              "tips": "ID : The identifier of the configuration parameter (tab138)\n\t 0x00 or 0x01"
+            },
+            {
+              "type": "Len",
+              "length": 1,
+              "value": 1,
+              "checked": true,
+              "tips": "the length of the val,\nif the Len"
+            },
+            {
+              "type": "Val",
+              "length": 1,
+              "value":
+              [
+                {
+                  "type": "bytes",
+                  "length": 1,
+                  "value": 1,
+                  "checked": true,
+                  "tips": "One bytes of the val."
+                }
+              ],
+              "checked": true,
+              "tips": "First octet :\tNFCEE ID (tab 116)\nSecond octet:\tNFCEE Interface / Protocol (tab136)"
+            }
+          ],
+          "checked": true,
+          "tips": "ID : 0X00 OR 0X01 \n\n0X00 : \tRF Discovery and ID RF Protocol \nFirst octet:\tAn RF Discovery ID (tab 67).\n\t0 : RFU\n\t1-254 : Dynamically assigned by NFCC\n\t255 : RFU\nSecond octet:\t RF Protocol(tab133).\n\t0x00 : PROTOCOL_UNDETERMINED\n\t0x01 : PROTOCOL_T1T\n\t0x02 : PROTOCOL_T2T\n\t0x03 : PROTOCOL_T3T\n\t0x04 : PROTOCOL_ISO_DEP\n\t0x05 : PROTOCOL_NFC_DEP\n\t0x06 : PROTOCOL_T5T\n\t0x07 : PROTOCOL_NDEF\n\t0x08-0x7F : RFU\n\t0x80-0xFE : For proprietary use\n\t0xFF : RFU\n\n0X01 : \tNFCEE ID and NFCEE Interface / Protocol.\n\t0X00 : APDU\n\t0X01 : RFU\n\t0X02 : Type 3 Tag Command Set \n\t0x03 : Transparent\n\t0x04 - 0x07 : RFU\n\t0x80-0xFE : For proprietary use\n\t0xFF : RFU"
+        }
+      ]
+    },
+    "RF_DISCOVER_MAP_CMD": {
+      "header": [
+        {
+          "type":"GID",
+          "value": 1
+        },
+        {
+          "type":"OID",
+          "value": 0
+        }
+      ],
+      "params": [
+        {
+          "type":"Num of Mapping Config",
+          "length": 1,
+          "value": 0,
+          "checked": true,
+          "tips": ""
+        },
+        {
+          "type": "Mapping Config",
+          "length": 10,
+          "value":[
+            {
+              "type": "RF Protocol",
+              "length": 1,
+              "value": 0,
+              "checked": true,
+              "tips": "Table-133"
+            },
+            {
+              "type": "Mode",
+              "length": 1,
+              "value": 0,
+              "checked": true,
+              "tips": "Table-49:\n\tbit0: 1 for mapping to Poll mode\n\tbit1: 1 for mapping to Listen mode"
+            },
+            {
+              "type": "RF Interface",
+              "length": 1,
+              "value": 0,
+              "checked": true,
+              "tips": "Table-134"
+            }
+          ],
+          "checked": true,
+          "tips": ""
+        }
+      ]
+    },
+    "RF_SET_LISTEN_MODE_ROUTING_CMD": {
+      "header": [
+        {
+          "type":"GID",
+          "value": 1
+        },
+        {
+          "type":"OID",
+          "value": 1
+        }
+      ],
+      "params": [
+        {
+          "type":"More",
+          "length": 1,
+          "value": 0,
+          "checked": true,
+          "tips": "Table-51:\n\t0x00: Last Message\n\t0x01: More Messages to follow"
+        },
+        {
+          "type":"Num of Routing Entries",
+          "length": 1,
+          "value": 0,
+          "checked": true,
+          "tips": ""
+        },
+        {
+          "type": "Tech-based Routing Entries",
+          "length": 5,
+          "value":[
+            {
+              "type": "Qualifier Type",
+              "length": 1,
+              "value": 0,
+              "checked": true,
+              "tips": "Table-52:\n\tbit0-bit3, Entry type: 0x0 for Tech-based routing\n\tbit4-bit5: 0 for Tech-based routing\n\tbit6: Routing is blocked for unsupported power modes\n\tbit7: RFU"
+            },
+            {
+              "type": "Entry Length",
+              "length": 1,
+              "value": 3,
+              "checked": true,
+              "tips": "Table-53:\n\t3 for Tech-based routing"
+            },
+            {
+              "type": "Routing Route",
+              "length": 1,
+              "value": 0,
+              "checked": true,
+              "tips": "Table-116"
+            },
+            {
+              "type": "Power State",
+              "length": 1,
+              "value": 0,
+              "checked": true,
+              "tips": "Table-59:\n\tbit0: 1 for switch on applied\n\tbit1: 1 for switch off applied\n\tbit2: 1 for battery off applied\n\tbit3: 1 for switch on sub 1 applied\n\tbit4: 1 for switch on sub 2 applied\n\tbit5: 1 for switch on sub 3 applied\n\tbit6-bit7: RFU"
+            },
+            {
+              "type": "Technology",
+              "length": 1,
+              "value": 0,
+              "checked": true,
+              "tips": "Table-130"
+            }
+          ],
+          "checked": true,
+          "tips": ""
+        },
+        {
+          "type": "Protocol-based Routing Entries",
+          "length": 5,
+          "value":[
+            {
+              "type": "Qualifier Type",
+              "length": 1,
+              "value": 0,
+              "checked": true,
+              "tips": "Table-52:\n\tbit0-bit3, Entry type: 0x1 for Protocol-based routing\n\tbit4-bit5: 0 for Protocol-based routing\n\tbit6: Routing is blocked for unsupported power modes\n\tbit7: RFU"
+            },
+            {
+              "type": "Entry Length",
+              "length": 1,
+              "value": 3,
+              "checked": true,
+              "tips": "Table-53:\n\t3 for Protocol-based routing"
+            },
+            {
+              "type": "Routing Route",
+              "length": 1,
+              "value": 0,
+              "checked": true,
+              "tips": "Table-116"
+            },
+            {
+              "type": "Power State",
+              "length": 1,
+              "value": 0,
+              "checked": true,
+              "tips": "Table-59:\n\tbit0: 1 for switch on applied\n\tbit1: 1 for switch off applied\n\tbit2: 1 for battery off applied\n\tbit3: 1 for switch on sub 1 applied\n\tbit4: 1 for switch on sub 2 applied\n\tbit5: 1 for switch on sub 3 applied\n\tbit6-bit7: RFU"
+            },
+            {
+              "type": "Protocol",
+              "length": 1,
+              "value": 0,
+              "checked": true,
+              "tips": "Table-133"
+            }
+          ],
+          "checked": true,
+          "tips": ""
+        },
+        {
+          "type": "AID-based Routing Entries",
+          "length": 5,
+          "value":[
+            {
+              "type": "Qualifier Type",
+              "length": 1,
+              "value": 0,
+              "checked": true,
+              "tips": "Table-52:\n\tbit0-bit3, Entry type: 0x2 for AID-based routing\n\tbit4: Match allowed for Select AID longer than entry value\n\tbit5: Match allowed for Select AID shorter than entry value\n\tbit6: Routing is blocked for unsupported power modes\n\tbit7: RFU"
+            },
+            {
+              "type": "Entry Length",
+              "length": 1,
+              "value": 0,
+              "checked": true,
+              "tips": "Table-53:\n\t2+n for AID-based routing"
+            },
+            {
+              "type": "Routing Route",
+              "length": 1,
+              "value": 0,
+              "checked": true,
+              "tips": "Table-116"
+            },
+            {
+              "type": "Power State",
+              "length": 1,
+              "value": 0,
+              "checked": true,
+              "tips": "Table-59:\n\tbit0: 1 for switch on applied\n\tbit1: 1 for switch off applied\n\tbit2: 1 for battery off applied\n\tbit3: 1 for switch on sub 1 applied\n\tbit4: 1 for switch on sub 2 applied\n\tbit5: 1 for switch on sub 3 applied\n\tbit6-bit7: RFU"
+            },
+            {
+              "type": "Application ID",
+              "length": 0,
+              "value": 0,
+              "checked": true,
+              "tips": "Table-56: 0-16 octets for AID"
+            }
+          ],
+          "checked": true,
+          "tips": ""
+        },
+        {
+          "type": "SC-based Routing Entries",
+          "length": 5,
+          "value":[
+            {
+              "type": "Qualifier Type",
+              "length": 1,
+              "value": 0,
+              "checked": true,
+              "tips": "Table-52:\n\tbit0-bit3, Entry type: 0x3 for SC-based routing\n\tbit4-bit5: 0 for SC-based routing\n\tbit6: Routing is blocked for unsupported power modes\n\tbit7: RFU"
+            },
+            {
+              "type": "Entry Length",
+              "length": 1,
+              "value": 0,
+              "checked": true,
+              "tips": "Table-53:\n\t2+2n for SC-based routing"
+            },
+            {
+              "type": "Routing Route",
+              "length": 1,
+              "value": 0,
+              "checked": true,
+              "tips": "Table-116"
+            },
+            {
+              "type": "Power State",
+              "length": 1,
+              "value": 255,
+              "checked": true,
+              "tips": "Table-59:\n\tbit0: 1 for switch on applied\n\tbit1: 1 for switch off applied\n\tbit2: 1 for battery off applied\n\tbit3: 1 for switch on sub 1 applied\n\tbit4: 1 for switch on sub 2 applied\n\tbit5: 1 for switch on sub 3 applied\n\tbit6-bit7: RFU"
+            },
+            {
+              "type": "SC Route List",
+              "length": 0,
+              "value": 255,
+              "checked": true,
+              "tips": "Table-57: 2n octets, list for n entries of system code, 1 <= n <= 32"
+            }
+          ],
+          "checked": true,
+          "tips": ""
+        },
+        {
+          "type": "APDU-based Routing Entries",
+          "length": 5,
+          "value":[
+            {
+              "type": "Qualifier Type",
+              "length": 1,
+              "value": 255,
+              "checked": true,
+              "tips": "Table-52:\n\tbit0-bit3, Entry type: 0x4 for APDU-based routing\n\tbit4-bit5: 0 for APDU-based routing\n\tbit6: Routing is blocked for unsupported power modes\n\tbit7: RFU"
+            },
+            {
+              "type": "Entry Length",
+              "length": 1,
+              "value": 255,
+              "checked": true,
+              "tips": "Table-53:\n\t2+2n for APDU-based routing"
+            },
+            {
+              "type": "Routing Route",
+              "length": 1,
+              "value": 255,
+              "checked": true,
+              "tips": "Table-116"
+            },
+            {
+              "type": "Power State",
+              "length": 1,
+              "value": 255,
+              "checked": true,
+              "tips": "Table-59:\n\tbit0: 1 for switch on applied\n\tbit1: 1 for switch off applied\n\tbit2: 1 for battery off applied\n\tbit3: 1 for switch on sub 1 applied\n\tbit4: 1 for switch on sub 2 applied\n\tbit5: 1 for switch on sub 3 applied\n\tbit6-bit7: RFU"
+            },
+            {
+              "type": "Reference Data",
+              "length": 0,
+              "value": 255,
+              "checked": true,
+              "tips": "Table-58: n octets, reference data for comparison, 1 <= n <= 124"
+            },
+            {
+              "type": "Mask",
+              "length": 0,
+              "value": 255,
+              "checked": true,
+              "tips": "Table-58: n octets, Mask pattern for AND operation before comparison, 1 <= n <= 124"
+            }
+          ],
+          "checked": true,
+          "tips": ""
+        }
+      ]
+    },
+    "RF_GET_LISTEN_MODE_ROUTING_CMD": {
+      "header": [
+        {
+          "type":"GID",
+          "value": 1
+        },
+        {
+          "type":"OID",
+          "value": 2
+        }
+      ],
+      "params": [
+        {
+          "type": "<No parameter needed>",
+          "length": 0,
+          "value": 255,
+          "checked": false,
+          "tips": "Empty parameter list"
+        }
+      ]
+    },
+    "RF_DISCOVER_CMD": {
+      "header": [
+        {
+          "type":"GID",
+          "value": 1
+        },
+        {
+          "type":"OID",
+          "value": 3
+        }
+      ],
+      "params": [
+        {
+          "type":"Num of Discover Config",
+          "length": 1,
+          "value": 0,
+          "checked": true,
+          "tips": ""
+        },
+        {
+          "type": "Discover Config",
+          "length": 10,
+          "value":[
+            {
+              "type": "RF Tech-Mode",
+              "length": 1,
+              "value": 255,
+              "checked": true,
+              "tips": "Table-131"
+            },
+            {
+              "type": "Discovery Frequency",
+              "length": 1,
+              "value": 255,
+              "checked": true,
+              "tips": "0: RFU\n1: Exec every discover period\n0x2-0xA: Exec period frequency for Poll mode\n0x0B-0xFF: RFU"
+            }
+          ],
+          "checked": true,
+          "tips": ""
+        }
+      ]
+    },
+    "RF_DISCOVER_SELECT_CMD": {
+      "header": [
+        {
+          "type":"GID",
+          "value": 1
+        },
+        {
+          "type":"OID",
+          "value": 4
+        }
+      ],
+      "params": [
+        {
+          "type":"RF Discovery ID",
+          "length": 1,
+          "value": 0,
+          "checked": true,
+          "tips": "Table-67: 1-254 assigned by NFCC"
+        },
+        {
+          "type":"RF Protocol",
+          "length": 1,
+          "value": 255,
+          "checked": true,
+          "tips": "Table-133"
+        },
+        {
+          "type":"RF Interface",
+          "length": 1,
+          "value": 255,
+          "checked": true,
+          "tips": "Table-134"
+        }
+      ]
+    },
+    "RF_DEACTIVATE_CMD": {
+      "header": [
+        {
+          "type":"GID",
+          "value": 1
+        },
+        {
+          "type":"OID",
+          "value": 6
+        }
+      ],
+      "params": [
+        {
+          "type":"Deactivate Type",
+          "length": 1,
+          "value": 0,
+          "checked": true,
+          "tips": "Table-80:\n\t0x00: Idle Mode\n\t0x01: Sleep Mode\n\t0x02: Sleep_AF Mode\n\t0x03: Discovery Mode\n\t0x04-0xFF: RFU"
+        }
+      ]
+    },
+    "RF_T3T_POLLING_CMD": {
+      "header": [
+        {
+          "type":"GID",
+          "value": 1
+        },
+        {
+          "type":"OID",
+          "value": 8
+        }
+      ],
+      "params": [
+        {
+          "type":"SensF Request Parameter",
+          "length": 4,
+          "value": 0,
+          "checked": true,
+          "tips": ""
+        }
+      ]
+    },
+    "RF_PARAMETER_UPDATE_CMD": {
+      "header": [
+        {
+          "type":"GID",
+          "value": 1
+        },
+        {
+          "type":"OID",
+          "value": 11
+        }
+      ],
+      "params": [
+        {
+          "type":"Num of Parameters",
+          "length": 1,
+          "value": "X",
+          "checked": true,
+          "tips": ""
+        },
+        {
+          "type": "Parameters Config",
+          "length": 1,
+          "value":[
+            {
+              "type": "Param0 ID (RF Tech-Mode)",
+              "length": 1,
+              "value": 0,
+              "checked": true,
+              "tips": "Table-91: 0 for RF Tech-Mode"
+            },
+            {
+              "type": "Param0 Len (RF Tech-Mode)",
+              "length": 1,
+              "value": 1,
+              "checked": true,
+              "tips": "Table-91: 1 for RF Tech-Mode"
+            },
+            {
+              "type": "Param0 Val (RF Tech-Mode)",
+              "length": 1,
+              "value": "",
+              "checked": true,
+              "tips": "Table-131"
+            },
+            {
+              "type": "Param1 ID (Transmit Bit Rate)",
+              "length": 1,
+              "value": 1,
+              "checked": true,
+              "tips": "Table-91: 1 for Transmit Bit Rate"
+            },
+            {
+              "type": "Param1 Len (Transmit Bit Rate)",
+              "length": 1,
+              "value": 1,
+              "checked": true,
+              "tips": "Table-91: 1 for Transmit Bit Rate"
+            },
+            {
+              "type": "Param1 Val (Transmit Bit Rate)",
+              "length": 1,
+              "value": "",
+              "checked": true,
+              "tips": "Table-132"
+            },
+            {
+              "type": "Param2 ID (Receive Bit Rate)",
+              "length": 1,
+              "value": 2,
+              "checked": true,
+              "tips": "Table-91: 2 for Receive Bit Rate"
+            },
+            {
+              "type": "Param2 Len (Receive Bit Rate)",
+              "length": 1,
+              "value": 1,
+              "checked": true,
+              "tips": "Table-91: 1 for Receive Bit Rate"
+            },
+            {
+              "type": "Param2 Val (Receive Bit Rate)",
+              "length": 1,
+              "value": "",
+              "checked": true,
+              "tips": "Table-132"
+            },
+            {
+              "type": "Param3 ID (NFC-B Data Exchange Config)",
+              "length": 1,
+              "value": 3,
+              "checked": true,
+              "tips": "Table-91: 3 for NFC-B Data Exchange Config"
+            },
+            {
+              "type": "Param3 Len (NFC-B Data Exchange Config)",
+              "length": 1,
+              "value": 1,
+              "checked": true,
+              "tips": "Table-91: 1 for NFC-B Data Exchange Config"
+            },
+            {
+              "type": "Param3 Val (NFC-B Data Exchange Config)",
+              "length": 1,
+              "value": "",
+              "checked": true,
+              "tips": "Table-92\n\tbit0-bit1: Minimum TR2\n\tbit2: Suppression of SOS\n\tbit3: Suppression of EOS\n\tbit4-bit5: Minimum TR1\n\tbit6-bit7: Minimum TR0"
+            }
+          ],
+          "checked": true,
+          "tips": ""
+        }
+      ]
+    },
+    "RF_INTF_EXT_START_CMD": {
+      "header": [
+        {
+          "type":"GID",
+          "value": 1
+        },
+        {
+          "type":"OID",
+          "value": 12
+        }
+      ],
+      "params": [
+        {
+          "type":"Extension",
+          "length": 1,
+          "value": "",
+          "checked": true,
+          "tips": "Table-135"
+        },
+        {
+          "type":"Start Parameter Length",
+          "length": 1,
+          "value": "",
+          "checked": true,
+          "tips": ""
+        },
+        {
+          "type":"Start Parameter",
+          "length": 1,
+          "value": "X",
+          "checked": true,
+          "tips": "Start Parameter defined for respective RF interface extension"
+        }
+      ]
+    },
+    "RF_INTF_EXT_STOP_CMD": {
+      "header": [
+        {
+          "type":"GID",
+          "value": 1
+        },
+        {
+          "type":"OID",
+          "value": 13
+        }
+      ],
+      "params": [
+        {
+          "type":"Extension",
+          "length": 1,
+          "value": "",
+          "checked": true,
+          "tips": "Table-135"
+        },
+        {
+          "type":"Stop Parameter Length",
+          "length": 1,
+          "value": "",
+          "checked": true,
+          "tips": ""
+        },
+        {
+          "type":"Stop Parameter",
+          "length": 1,
+          "value": "X",
+          "checked": true,
+          "tips": "Stop Parameter defined for respective RF interface extension"
+        }
+      ]
+    },
+    "RF_EXT_AGG_ABORT_CMD": {
+      "header": [
+        {
+          "type":"GID",
+          "value": 1
+        },
+        {
+          "type":"OID",
+          "value": 14
+        }
+      ],
+      "params": [
+        {
+          "type": "<No parameter needed>",
+          "length": "",
+          "value": "",
+          "checked": false,
+          "tips": "Empty parameter list"
+        }
+      ]
+    },
+    "RF_NDEF_ABORT_CMD": {
+      "header": [
+        {
+          "type":"GID",
+          "value": 1
+        },
+        {
+          "type":"OID",
+          "value": 15
+        }
+      ],
+      "params": [
+        {
+          "type": "<No parameter needed>",
+          "length": "",
+          "value": "",
+          "checked": false,
+          "tips": "Empty parameter list"
+        }
+      ]
+    },
+    "RF_ISO_DEP_NAK_PRESENCE_CMD": {
+      "header": [
+        {
+          "type":"GID",
+          "value": 1
+        },
+        {
+          "type":"OID",
+          "value": 16
+        }
+      ],
+      "params": [
+        {
+          "type": "<No parameter needed>",
+          "length": "",
+          "value": "",
+          "checked": false,
+          "tips": "Empty parameter list"
+        }
+      ]
+    },
+    "RF_SET_FORCED_NFCEE_ROUTING_CMD": {
+      "header": [
+        {
+          "type":"GID",
+          "value": 1
+        },
+        {
+          "type":"OID",
+          "value": 17
+        }
+      ],
+      "params": [
+        {
+          "type": "Forced routing state",
+          "length": 1,
+          "value": "",
+          "checked": true,
+          "tips": "0x00: Forced routing disabled\n0x01: Forced routing enabled\n0x02-0xFF: RFU"
+        },
+        {
+          "type": "Forced NFCEE ID",
+          "length": 1,
+          "value": "",
+          "checked": false,
+          "tips": "Table-116, used when forced routing is enabled"
+        },
+        {
+          "type": "Forced Power State",
+          "length": 1,
+          "value": "",
+          "checked": false,
+          "tips": "Table-59, used when forced routing is enabled\n\tbit0: 1 for switch on applied\n\tbit1: 1 for switch off applied\n\tbit2: 1 for battery off applied\n\tbit3: 1 for switch on sub 1 applied\n\tbit4: 1 for switch on sub 2 applied\n\tbit5: 1 for switch on sub 3 applied\n\tbit6-bit7: RFU"
+        }
+      ]
+    },
+    "NFCEE_DISCOVER_CMD": {
+      "header": [
+        {
+          "type":"GID",
+          "value": 2
+        },
+        {
+          "type":"OID",
+          "value": 0
+        }
+      ],
+      "params": [
+        {
+          "type": "<No parameter needed>",
+          "length": "",
+          "value": "",
+          "checked": false,
+          "tips": "Empty parameter list"
+        }
+      ]
+    },
+    "NFCEE_MODE_SET_CMD": {
+      "header": [
+        {
+          "type":"GID",
+          "value": 2
+        },
+        {
+          "type":"OID",
+          "value": 1
+        }
+      ],
+      "params": [
+        {
+          "type": "NFCEE ID",
+          "length": 1,
+          "value": "",
+          "checked": true,
+          "tips": "Table-116, value 0x00 shall not be used"
+        },
+        {
+          "type": "NFCEE Mode",
+          "length": 1,
+          "value": "",
+          "checked": true,
+          "tips": "0x00: disable\n0x01: enable\n0x02-0xFF: RFU"
+        }
+      ]
+    },
+    "NFCEE_POWER_AND_LINK_CNTRL_CMD": {
+      "header": [
+        {
+          "type":"GID",
+          "value": 2
+        },
+        {
+          "type":"OID",
+          "value": 3
+        }
+      ],
+      "params": [
+        {
+          "type": "NFCEE ID",
+          "length": 1,
+          "value": "",
+          "checked": true,
+          "tips": "Table-116, value 0x00 shall not be used"
+        },
+        {
+          "type": "Power and Comm. Link Config",
+          "length": 1,
+          "value": "",
+          "checked": true,
+          "tips": "0x00: NFCC decides\n0x01: NFCEE power supply always on\n0x02: Comm. Link always active when NFCEE is powered on\n0x03: NFCEE power and Comm. Link are always on\n0x04-0xFF: RFU"
+        }
+      ]
+    }
+  },
+  "HciCmdList": {}
+}
+
